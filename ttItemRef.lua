@@ -98,6 +98,9 @@ local function ResolveGlobalNamedObjects(tipTable)
 		if (resolved[tip]) then
 			tip = false;
 		elseif (tip) then
+			if (type(tip.SetBackdrop) ~= "function" and BackdropTemplateMixin and "BackdropTemplate") then -- #frozn45
+				Mixin(tip, BackdropTemplateMixin)                                                          -- #frozn45
+			end                                                                                            -- #frozn45
 			resolved[tip] = index;
 		end
 
